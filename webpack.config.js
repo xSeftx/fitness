@@ -1,13 +1,12 @@
 const path = require('path');
 
 module.exports = {
-
     entry: {
-        main: '.src/index.js',
+        main: './src/index.js'
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: '[name]'.js,
+        filename: '[name].js',
         publicPath: '/dist'
     },
     devServer: {
@@ -18,8 +17,9 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                exclude: '/node_modules'
+                exclude: '/node_modules/'
             }
         ]
     }
-};
+    
+}
