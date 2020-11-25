@@ -1,24 +1,28 @@
 
 // селкт меню выбор клуба
-const selectClub = () => { 
-    const clubsList = document.querySelector('.clubs-list'),         
-        clubs =  clubsList.querySelector('ul'); 
+const selectClub = () => {     
+    const clubsList = document.querySelector('.clubs-list'), 
+        body = document.querySelector('body'),         
+        clubs =  clubsList.querySelector('ul');         
         
-        clubsList.addEventListener('click', (e) => {
-        let target = e.target.parentNode;
+        body.addEventListener('click', (e) => {
+            let target = e.target.parentNode;        
+            if(target.matches('.clubs-list')){ 
+
+                if(clubs.style.display === 'block'){
+                    clubs.style.display = 'none';
+                    
+                }else{
+                    clubs.style.display = 'block';                     
+                }                  
+             
+            }else{
+                clubs.style.display = 'none';
+            }             
         
-        if(target.matches('.clubs-list')){            
-            
-            clubs.style.display = 'block'
-        }        
-        
-    })
-}
+        });
 
-
-
-
-
+};
 
 
 export default selectClub

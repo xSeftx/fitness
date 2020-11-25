@@ -2,6 +2,7 @@
 
 
 import selectClub from './modules/selectClub'
+import mainSlider from './modules/mainSlider'
 
 
 
@@ -9,5 +10,8 @@ import selectClub from './modules/selectClub'
 
 
 
-// селкт меню выбор клуба
+// селкт, меню выборa клуба
 selectClub();
+
+// cлайдер на главной странице
+mainSlider();
