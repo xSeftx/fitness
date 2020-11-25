@@ -1,8 +1,5 @@
 // бургер меню
-const burgerMenu = () => {
-
-    
-    
+const burgerMenu = () => {      
     
     const menuButton = document.querySelector('.menu-button'),
         popupMenu = document.querySelector('.popup-menu');
