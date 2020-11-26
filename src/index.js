@@ -4,6 +4,10 @@
 import selectClub from './modules/selectClub'
 import mainSlider from './modules/mainSlider'
 import burgerMenu from './modules/burgerMenu'
+import carouselSlider from './modules/carouselSlider'
+
+
+
 
 
 
@@ -19,3 +23,6 @@ mainSlider();
 
 // бургер меню
 burgerMenu();
+
+// карусель слайдер
+carouselSlider();
