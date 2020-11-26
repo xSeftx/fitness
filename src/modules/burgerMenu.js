@@ -2,14 +2,14 @@
 const burgerMenu = () => {      
     
     const menuButton = document.querySelector('.menu-button'),
-        popupMenu = document.querySelector('.popup-menu');
+        popupMenu = document.querySelector('.popup-menu');       
 
     
-    menuButton.addEventListener('click', () => popupMenu.style.display = 'flex');
+    menuButton.addEventListener('click', () => popupMenu.style.display = 'block');
 
     popupMenu.addEventListener('click', (event) => {        
         let target = event.target;        
-        if(!target.classList.contains('.popup-menu')){
+        if(target.closest('.close-menu-btn') || target.closest('.scroll')){
         popupMenu.style.display = 'none'
         }          
     })  
@@ -31,8 +31,5 @@ const burgerMenu = () => {
         
     })
 }
-
-
-
 
 export default burgerMenu

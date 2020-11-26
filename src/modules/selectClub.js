@@ -6,8 +6,7 @@ const selectClub = () => {
         clubs =  clubsList.querySelector('ul');         
         
         body.addEventListener('click', (e) => {
-            let target = e.target.parentNode; 
-            console.log(target);       
+            let target = e.target.parentNode;                   
             if(target.matches('.clubs-list')){                 
                 if(clubs.style.display === 'block'){
                     clubs.style.display = 'none';
