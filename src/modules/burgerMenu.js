@@ -1,10 +1,9 @@
 // бургер меню
-const burgerMenu = () => {      
-    
-        
+const burgerMenu = () => {  
         const menuButton = document.querySelector('.menu-button'),
-            popupMenu = document.querySelector('.popup-menu');  
-            
+            popupMenu = document.querySelector('.popup-menu'),
+            topMenu = document.querySelector('.top-menu');  
+        
         menuButton.addEventListener('click', (e) => {
             let target = e.target.parentNode;        
             if(target.matches('.menu-button')){
@@ -14,33 +13,26 @@ const burgerMenu = () => {
         
 
         popupMenu.addEventListener('click', (event) => {        
-            let target = event.target;  
-            console.log(target);      
+            let target = event.target;                  
             if(target.closest('.close-menu-btn') || target.closest('a')){
             popupMenu.style.display = 'none'
             }          
-        });
-
-        
+        });        
             
-            if(document.documentElement.offsetWidth <= 768) {  
-                const menu = document.querySelector('.top-menu'),
-                    gift = document.querySelector('.fixed-gift');                 
-                window.addEventListener('scroll', () => { 
-                        if(window.scrollY >= 200){            
-                        menu.style.position = 'fixed';            
-                        gift.style.display = 'none'; 
-                        
-                    }else if(window.scrollY <= 400){
-                        menu.style.position = 'relative';
-                        gift.style.display = 'block';
-                    }                
-                })
+        if(document.documentElement.offsetWidth <= 768) {                             
+            window.addEventListener('scroll', () => { 
+                const gift = document.querySelector('.fixed-gift'); 
+                if(window.scrollY >= 200){            
+                    topMenu.style.position = 'fixed';            
+                gift.style.display = 'none'; 
+                    
+                }else if(window.scrollY <= 400){
+                    topMenu.style.position = 'relative';
+                    gift.style.display = 'block';
+                }
 
-            }else {
-                menu.style.position = 'relative';
-            }
-        
+            });
+        }
     
 }
 
