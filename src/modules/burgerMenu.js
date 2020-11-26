@@ -2,14 +2,20 @@
 const burgerMenu = () => {      
     
     const menuButton = document.querySelector('.menu-button'),
-        popupMenu = document.querySelector('.popup-menu');       
-
-    
-    menuButton.addEventListener('click', () => popupMenu.style.display = 'block');
+        popupMenu = document.querySelector('.popup-menu');  
+        
+    menuButton.addEventListener('click', (e) => {
+        let target = e.target.parentNode;        
+        if(target.matches('.menu-button')){
+            popupMenu.style.display = 'block'
+        }
+    })
+        
 
     popupMenu.addEventListener('click', (event) => {        
-        let target = event.target;        
-        if(target.closest('.close-menu-btn') || target.closest('.scroll')){
+        let target = event.target;  
+        console.log(target);      
+        if(target.closest('.close-menu-btn') || target.closest('a')){
         popupMenu.style.display = 'none'
         }          
     })  
