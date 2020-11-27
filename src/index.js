@@ -5,6 +5,7 @@ import selectClub from './modules/selectClub'
 import mainSlider from './modules/mainSlider'
 import burgerMenu from './modules/burgerMenu'
 import carouselSlider from './modules/carouselSlider'
+import gallerySlider from './modules/gallerySlider'
 
 
 
@@ -26,3 +27,6 @@ burgerMenu();
 
 // карусель слайдер
 carouselSlider();
+
+//слайдер фотогалерея
+gallerySlider();
