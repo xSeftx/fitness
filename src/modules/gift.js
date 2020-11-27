@@ -5,7 +5,7 @@ const gift = () => {
         popupGift = document.getElementById('gift');
     
     gift.addEventListener('click', () => {        
-        popupGift.style.display = 'block';        
+        popupGift.style.display = 'block';             
         gift.style.display = 'none';
     });        
     

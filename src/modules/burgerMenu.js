@@ -19,20 +19,27 @@ const burgerMenu = () => {
             }          
         });        
             
-        if(document.documentElement.offsetWidth <= 768) {                             
-            window.addEventListener('scroll', () => { 
-                const gift = document.querySelector('.fixed-gift'); 
+        
+                                   
+        window.addEventListener('scroll', () => {             
+        
+            if(document.documentElement.offsetWidth <= 768) { 
+                          
                 if(window.scrollY >= 200){            
                     topMenu.style.position = 'fixed'; 
-                    // topMenu.style.zIndex = '1000' 
-                                     
+                    topMenu.style.zIndex = '500';                    
+                                        
                 }else if(window.scrollY <= 400){
                     topMenu.style.position = 'relative';
-                    // topMenu.style.zIndex = '0'
-                }
+                    
+            }else {
+                topMenu.style.position = 'relative'
+            }
 
-            });
-        }
+            }
+
+        });
+        
     
 }
 
