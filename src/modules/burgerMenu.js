@@ -23,12 +23,12 @@ const burgerMenu = () => {
             window.addEventListener('scroll', () => { 
                 const gift = document.querySelector('.fixed-gift'); 
                 if(window.scrollY >= 200){            
-                    topMenu.style.position = 'fixed';            
-                gift.style.display = 'none'; 
-                    
+                    topMenu.style.position = 'fixed'; 
+                    topMenu.style.zIndex = '1000' 
+                                     
                 }else if(window.scrollY <= 400){
                     topMenu.style.position = 'relative';
-                    gift.style.display = 'block';
+                    
                 }
 
             });
