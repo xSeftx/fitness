@@ -1,5 +1,5 @@
 
-// карусель слайдер
+//карусель слайдер
 const carouselSlider = () => {
     class SliderCarousel {
         constructor({
@@ -22,23 +22,15 @@ const carouselSlider = () => {
             };
             this.responsive = responsive;
         }
-    
-        init() {   
 
-            this.addStyle();
-    
-            if (this.prev && this.next) {
-                this.controlSlider();
-            } else {
-                this.addArrow();
-                this.controlSlider();
+        addGloClass() {
+            this.main.classList.add('fit-slider');
+            this.wrap.classList.add('fit-slider__wrap');
+            for(const item of this.slides) {
+                item.classList.add('fit-slider__item')
             }
-    
-            if (this.responsive) {
-                this.responseInit();
-            }
-        } 
-    
+        }
+
         addStyle() {
             let style = document.getElementById('sliderCarousel-style');
             if (!style) {
@@ -47,17 +39,17 @@ const carouselSlider = () => {
             }
     
             style.textContent = `
-                .wrapper {
+                .fit-slider {
                     overflow: hidden !important;
                     position: relative;
                 }
-                .services-slider {
+                .fit-slider__wrap {
                     display: flex !important;
                     transition: transform 0.5s !important;
                     will-change: transform !important;
                     padding: 0;
                 }
-                .slide {
+                .fit-slider__item {
                     align-items: center;
                     justify-content: center;
                     flex: 0 0 ${this.options.widthSLide}% !important;
@@ -67,12 +59,12 @@ const carouselSlider = () => {
     
             document.head.appendChild(style);
         }
-    
+
         controlSlider() {
             this.prev.addEventListener('click', this.prevSlider.bind(this));
             this.next.addEventListener('click', this.nextSlider.bind(this));
         }
-    
+
         prevSlider() {
             if (this.options.position > 0 || this.options.infinity) {
                 --this.options.position;
@@ -82,7 +74,7 @@ const carouselSlider = () => {
                 this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSLide}%)`;
             }
         }
-    
+
         nextSlider() {
             if (this.options.infinity || this.options.position < this.options.maxPosition) {
                 ++this.options.position;
@@ -93,7 +85,7 @@ const carouselSlider = () => {
     
             }
         }
-    
+
         addArrow() {
             this.prev = document.createElement('button');
             this.next = document.createElement('button');
@@ -135,9 +127,9 @@ const carouselSlider = () => {
                     outline: transparent;
                 }
                 `;
-            document.head.append(style);
+            document.head.appendChild(style);
         }
-    
+
         responseInit() {
             const slidesToShowDefault = this.slidesToShow,
                 allResponse = this.responsive.map(item => item.breakpoint),
@@ -163,13 +155,43 @@ const carouselSlider = () => {
     
             window.addEventListener('resize', checkResponse);
         }
+    
+        init() {   
+            this.addGloClass();
+            this.addStyle();
+    
+            if (this.prev && this.next) {
+                this.controlSlider();
+            } else {
+                this.addArrow();
+                this.controlSlider();
+            }
+    
+            if (this.responsive) {
+                this.responseInit();
+            }
+        } 
+
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
     }
     
     
     const carousel = new SliderCarousel ({
         main: '#services .wrapper',
         wrap: '.services-slider',
-        slides: '.slide',
+        // slides: '.slide',
         slidesToShow: 4,
         infinity: true,
     

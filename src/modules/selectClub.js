@@ -11,9 +11,9 @@ const selectClub = () => {
                 if(clubs.style.display === 'block'){
                     clubs.style.display = 'none';
                     
-                }else{
-                    
-                    clubs.style.display = 'block';                     
+                }else{                    
+                    clubs.style.display = 'block'; 
+                                    
                 }   
                              
              
