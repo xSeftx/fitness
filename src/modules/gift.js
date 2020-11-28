@@ -20,7 +20,7 @@ const gift = () => {
     if(target.matches('.close_icon, .close-btn')){            
         popupGift.style.display = 'none';
     } else {
-        target = target.closest('.form-wrapper');
+        
         if(!target){
             popupGift.style.display = 'none';                
         }
