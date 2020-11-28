@@ -9,6 +9,7 @@ import gallerySlider from './modules/gallerySlider'
 import gift from './modules/gift'
 import calc from './modules/calc'
 import toggleForm from './modules/toggleForm'
+import inputForm from './modules/inputForm'
 
 
 
@@ -39,3 +40,6 @@ calc();
 
 // формы
 toggleForm();
+
+// маска
+inputForm();
