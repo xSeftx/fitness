@@ -10,7 +10,7 @@ import gift from './modules/gift'
 import calc from './modules/calc'
 import toggleForm from './modules/toggleForm'
 import inputForm from './modules/inputForm'
-
+import scroll from './modules/scroll'
 
 
 
@@ -43,3 +43,6 @@ toggleForm();
 
 // маска
 inputForm();
+
+// скролл
+scroll();
