@@ -1,30 +1,27 @@
 
 // скролл
 const scroll = () => {
-    const anchors = document.querySelectorAll('a'),
+    const anchors = document.querySelector('.hidden-small'),
         totop = document.getElementById('totop');
     totop.style.display = 'none';   
     
     totop.addEventListener('click', e => window.scrollBy(pageXOffset, 0));
 
-    for (let anchor of anchors) {
-        anchor.addEventListener('click', e => {
+    
+        anchors.addEventListener('click', e => {
             e.preventDefault();            
             let target = e.target;                        
-            const blockID = anchor.getAttribute('href'); 
-            if(!target.matches('.fa')){ 
-                console.log(1);
+            const blockID = target.getAttribute('href'); 
+            if(!target.matches('.fa')){                 
                 document.querySelector(blockID).scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 })                         
             
-            }else{
-                return
             }
             
         })
-    };
+    
 
     window.addEventListener('scroll', () => {      
         if(window.scrollY >= 800){                      
