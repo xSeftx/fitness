@@ -31,12 +31,13 @@ const burgerMenu = () => {
                                         
                 }else if(window.scrollY <= 400){
                     topMenu.style.position = 'relative';
+                }
                     
-            }else {
+            }else if(document.documentElement.offsetWidth >= 768) {
                 topMenu.style.position = 'relative'
-            }
+            };
 
-            }
+            
 
         });
         
