@@ -7,6 +7,10 @@ const calc = () => {
     promoInput = formCalc.querySelector('.price-message input'),
     promoCode = 'ТЕЛО2019';
 
+    if(priceTotal === null){
+        return
+    }
+
     const cost = {
     mozaika: [1999, 9900, 13900, 19900],
     schelkovo: [2999, 14990, 21990, 24990]

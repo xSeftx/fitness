@@ -1,27 +1,32 @@
 // подарок
 const gift = () => {
 
-    const body = document.querySelector('body'),
-        giftBtn = document.querySelector('.fixed-gift'),
-        giftPopup = document.querySelector('#gift');
+  const gift = document.querySelector('.fixed-gift'),
+      popupGift = document.getElementById('gift');
 
-  if (giftPopup === null) {
-    return;
-  }
-  body.addEventListener('click', (e) => {
-    let target = e.target,
-        targetClos = target.closest('.fixed-gift');
-    if (targetClos === giftBtn) {
-      console.log(giftPopup);
-      giftPopup.style.display = 'block';
-      giftBtn.remove();
+
+      if (gift === null) {
+            return;
+          }
+  
+  gift.addEventListener('click', () => {        
+  popupGift.style.display = 'block';        
+  gift.style.display = 'none';
+  
+  });   
+  
+  popupGift.addEventListener('click', (event) => {
+    let target = event.target;        
+    if(target.matches('.close_icon, .close-btn')){            
+        popupGift.style.display = 'none';
+    } else {
+        target = target.closest('.form-wrapper');
+        if(!target){
+            popupGift.style.display = 'none';                
+        }
     }
-    if (giftPopup.style.display === 'block' && (target.classList.contains('overlay', 'close_icon', 'close-btn') || target.classList.contains('close_icon') || target.classList.contains('close-btn'))) {
-      giftPopup.style.display = 'none';
-    }
+    
   });
-
-};
-
-
+  
+}
 export default gift

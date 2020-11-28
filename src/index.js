@@ -8,9 +8,7 @@ import carouselSlider from './modules/carouselSlider'
 import gallerySlider from './modules/gallerySlider'
 import gift from './modules/gift'
 import calc from './modules/calc'
-
-
-
+import toggleForm from './modules/toggleForm'
 
 
 
@@ -38,3 +36,6 @@ gift();
 
 // калькулятор
 calc();
+
+// формы
+toggleForm();
