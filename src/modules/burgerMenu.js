@@ -3,7 +3,7 @@ const burgerMenu = () => {
         const menuButton = document.querySelector('.menu-button'),
             popupMenu = document.querySelector('.popup-menu'),
             topMenu = document.querySelector('.top-menu');  
-        
+        topMenu.style.zIndex = '500';
         menuButton.addEventListener('click', (e) => {
             let target = e.target.parentNode;        
             if(target.matches('.menu-button')){
@@ -27,17 +27,16 @@ const burgerMenu = () => {
                           
                 if(window.scrollY >= 200){            
                     topMenu.style.position = 'fixed'; 
-                    topMenu.style.zIndex = '500';                    
+                                        
                                         
                 }else if(window.scrollY <= 400){
-                    topMenu.style.position = 'relative';
-                }
-                    
-            }else if(document.documentElement.offsetWidth >= 768) {
-                topMenu.style.position = 'relative'
-            };
+                    topMenu.style.position = 'static';
+                 
+            }else if(document.documentElement.offsetWidth <= 768) {
+                topMenu.style.position = 'static'
+            }
 
-            
+            }
 
         });
         
