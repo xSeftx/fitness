@@ -2,7 +2,8 @@
 const burgerMenu = () => {  
         const menuButton = document.querySelector('.menu-button'),
             popupMenu = document.querySelector('.popup-menu'),
-            topMenu = document.querySelector('.top-menu');  
+            topMenu = document.querySelector('.top-menu');
+        topMenu.style.position = 'static';     
         topMenu.style.zIndex = '500';
         menuButton.addEventListener('click', (e) => {
             let target = e.target.parentNode;        
@@ -19,6 +20,9 @@ const burgerMenu = () => {
             }          
         });        
             
+        window.addEventListener('resize', () =>{
+            topMenu.style.position = 'static';
+        })
         
                                    
         window.addEventListener('scroll', () => {             
