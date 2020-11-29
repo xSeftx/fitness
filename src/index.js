@@ -11,6 +11,7 @@ import calc from './modules/calc'
 import toggleForm from './modules/toggleForm'
 import inputForm from './modules/inputForm'
 import scroll from './modules/scroll'
+import sendForm from './modules/sendForm'
 
 
 
@@ -46,3 +47,6 @@ inputForm();
 
 // скролл
 scroll();
+
+//send-ajax-form
+sendForm();
