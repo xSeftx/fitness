@@ -22,7 +22,7 @@ const calc = () => {
     const totalOutput = () => {
         timeInputs.forEach((item, i) => {
             if (item.checked) {
-                if (promoInput.value === promoCode) {
+                if (promoInput.value.trim() === promoCode) {
                 priceTotal.textContent = Math.ceil(currentCost[i] * 0.7);
                 } else {
                 priceTotal.textContent = currentCost[i];
