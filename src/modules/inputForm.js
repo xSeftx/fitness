@@ -40,7 +40,10 @@ const inputForm = () => {
 
     const inputFormMassege = () => {
         document.querySelectorAll('input[name="name"]').forEach(item => {
-            item.addEventListener('input', () => item.value = item.value.replace(/[^а-яА-Я \  ]/g, ''));
+            if(item.getAttribute('placeholder') !== 'Промокод'){
+                item.addEventListener('input', () => item.value = item.value.replace(/[^а-яА-Я \  ]/g, ''));
+            }
+            item.addEventListener('input', () => item.value = item.value.replace(/[^а-яА-Я-0-9 \/ ]/g, ''));
             
             
         });
