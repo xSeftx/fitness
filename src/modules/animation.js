@@ -1,31 +1,62 @@
 
 // анимация
 const animation = () => {
+    if (document.documentElement.offsetWidth >= 768){
     const logo = document.querySelector('.logo'),
+            gift = document.querySelector('.fixed-gift'),
             btn = document.querySelector('button[name="send"]'),
-            callbackBtn = document.querySelectorAll('.callback-btn');
-    console.log(btn);
+            callbackBtn = document.querySelectorAll('.callback-btn'),
+            clubsRight = document.querySelector('.right>.image'),
+            clubsLeft = document.querySelector('.image'),
+            slideGallery = document.querySelectorAll('.gallery-slider .slide'),
+            mainSlider = document.querySelector('.main-slider'),
+            slideMain = mainSlider.querySelectorAll('.slide');
+            gift.style.display = 'none';
+            clubsRight.style.display = 'none';
+            clubsLeft.style.display = 'none';    
             
     logo.style.zIndex = '-1';
+
+    setTimeout(() => {
+        gift.style.display = 'block';
+        gift.classList.add('magictime', 'twisterInUp');
+    }, 2000);
     
     const logoAnimation = () => {       
         logo.style.zIndex = '1';
         logo.classList.add('magictime', 'vanishIn')
     }
-    setTimeout(logoAnimation, 2000)
+    setTimeout(logoAnimation, 1500)
 
     window.addEventListener('scroll', () => {             
         callbackBtn.forEach(item => {
             
             if (window.scrollY >= 2790){
-                item.classList.add('magictime', 'tinUpIn')
+                item.classList.add('magictime', 'swashIn');
+
             }if(window.scrollY >= 720) {
-                btn.classList.add('magictime', 'tinRightIn')
-            } 
+                btn.classList.add('magictime', 'tinRightIn');
+
+            }if(window.scrollY >= 350){
+                clubsRight.style.display = 'block';
+                clubsLeft.style.display = 'block'; 
+                clubsRight.classList.add('magictime', 'slideRightReturn');
+                clubsLeft.classList.add('magictime', 'slideLeftReturn');
+            }
         })            
        
 
     });
+
+    slideGallery.forEach(item => {
+        item.classList.add('magictime', 'puffIn');
+    })
+
+    slideMain.forEach(item => {
+        item.classList.add('magictime', 'swashIn');
+    })
+
+    }
 
 
 }

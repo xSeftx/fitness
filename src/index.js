@@ -12,6 +12,7 @@ import toggleForm from './modules/toggleForm'
 import inputForm from './modules/inputForm'
 import scroll from './modules/scroll'
 import sendForm from './modules/sendForm'
+import animation from './modules/animation'
 
 
 
@@ -50,4 +51,7 @@ scroll();
 
 //send-ajax-form
 sendForm();
+
+// анимация
+animation();
 
