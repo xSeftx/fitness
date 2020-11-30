@@ -12,7 +12,7 @@ const scroll = () => {
             e.preventDefault();            
             let target = e.target;                        
             const blockID = target.getAttribute('href'); 
-            if(!target.matches('.fa')){                 
+            if(!target.matches('.fa') && !target.matches('.clubs-href')){                 
                 document.querySelector(blockID).scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'

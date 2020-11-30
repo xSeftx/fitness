@@ -1,6 +1,6 @@
 // подарок
 const gift = () => {
-
+  
   const gift = document.querySelector('.fixed-gift'),
       popupGift = document.getElementById('gift');
 

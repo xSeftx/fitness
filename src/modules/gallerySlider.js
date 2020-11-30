@@ -1,4 +1,3 @@
-
 // слайдер фотогалерея
 const gallerySlider = () => {
     const slider = document.querySelector('.gallery-slider'),
