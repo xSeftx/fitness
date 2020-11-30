@@ -12,8 +12,8 @@ const animation = () => {
             mainSlider = document.querySelector('.main-slider'),
             slideMain = mainSlider.querySelectorAll('.slide');
             gift.style.display = 'none';
-            clubsRight.style.display = 'none';
-            clubsLeft.style.display = 'none';    
+            clubsRight.style.zIndex = '-1';
+            clubsLeft.style.zIndex = '-1';    
             
     logo.style.zIndex = '-1';
 
@@ -31,15 +31,15 @@ const animation = () => {
     window.addEventListener('scroll', () => {             
         callbackBtn.forEach(item => {
             
-            if (window.scrollY >= 2790){
+            if (window.scrollY >= 2700){
                 item.classList.add('magictime', 'swashIn');
 
             }if(window.scrollY >= 720) {
                 btn.classList.add('magictime', 'tinRightIn');
 
             }if(window.scrollY >= 350){
-                clubsRight.style.display = 'block';
-                clubsLeft.style.display = 'block'; 
+                clubsRight.style.zIndex = '1';
+            clubsLeft.style.zIndex = '1'; 
                 clubsRight.classList.add('magictime', 'slideRightReturn');
                 clubsLeft.classList.add('magictime', 'slideLeftReturn');
             }
