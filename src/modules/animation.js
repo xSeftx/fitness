@@ -7,14 +7,21 @@ const animation = () => {
             btn = document.querySelector('button[name="send"]'),
             callbackBtn = document.querySelectorAll('.callback-btn'),
             clubsRight = document.querySelector('.right>.image'),
-            clubsLeft = document.querySelector('.image'),
-            slideGallery = document.querySelectorAll('.gallery-slider .slide'),
+            clubsLeft = document.querySelector('.image'),            
             mainSlider = document.querySelector('.main-slider'),
             slideMain = mainSlider.querySelectorAll('.slide');
-            gift.style.display = 'none';
-            clubsRight.style.zIndex = '-1';
-            clubsLeft.style.zIndex = '-1';    
+            // gift.style.display = 'none';
+            // clubsRight.style.zIndex = '-1';
+            // clubsLeft.style.zIndex = '-1';    
             
+    // logo.style.zIndex = '-1';
+
+    if (gift === null) {
+        return;
+      }
+    gift.style.display = 'none';
+    clubsRight.style.zIndex = '-1';
+    clubsLeft.style.zIndex = '-1';  
     logo.style.zIndex = '-1';
 
     setTimeout(() => {
@@ -29,8 +36,7 @@ const animation = () => {
     setTimeout(logoAnimation, 1500)
 
     window.addEventListener('scroll', () => {             
-        callbackBtn.forEach(item => {
-            
+        callbackBtn.forEach(item => {            
             if (window.scrollY >= 2700){
                 item.classList.add('magictime', 'swashIn');
 
@@ -39,18 +45,14 @@ const animation = () => {
 
             }if(window.scrollY >= 350){
                 clubsRight.style.zIndex = '1';
-            clubsLeft.style.zIndex = '1'; 
+                clubsLeft.style.zIndex = '1'; 
                 clubsRight.classList.add('magictime', 'slideRightReturn');
                 clubsLeft.classList.add('magictime', 'slideLeftReturn');
             }
         })            
        
 
-    });
-
-    slideGallery.forEach(item => {
-        item.classList.add('magictime', 'puffIn');
-    })
+    });   
 
     slideMain.forEach(item => {
         item.classList.add('magictime', 'swashIn');

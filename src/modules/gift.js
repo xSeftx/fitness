@@ -5,9 +5,9 @@ const gift = () => {
       popupGift = document.getElementById('gift');
 
 
-      if (gift === null) {
-            return;
-          }
+  if (gift === null) {
+        return;
+      }
   
   gift.addEventListener('click', () => {        
   popupGift.style.display = 'block';        
@@ -17,10 +17,10 @@ const gift = () => {
   
   popupGift.addEventListener('click', (event) => {
     let target = event.target;        
-    if(target.matches('.close_icon, .close-btn')){            
+    if(target.matches('.close_icon, .close-btn', '.overlay')){            
         popupGift.style.display = 'none';
     } else {
-        
+        target = target.closest('.form-wrapper');
         if(!target){
             popupGift.style.display = 'none';                
         }

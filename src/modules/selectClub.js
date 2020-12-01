@@ -6,7 +6,8 @@ const selectClub = () => {
         clubs =  clubsList.querySelector('ul');         
         
         body.addEventListener('click', (e) => {
-            let target = e.target.parentNode;                   
+            
+            let target = e.target.parentNode;                              
             if(target.matches('.clubs-list')){                 
                 if(clubs.style.display === 'block'){
                     clubs.style.display = 'none';
@@ -14,11 +15,14 @@ const selectClub = () => {
                 }else{                    
                     clubs.style.display = 'block'; 
                                     
-                }   
+                } 
+              
                              
              
             }else if(!target.closest('.clubs-list')){
                 clubs.style.display = 'none'
+            }else if(target === clubs){
+                return
             }            
         
         });

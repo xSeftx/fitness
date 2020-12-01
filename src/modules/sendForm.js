@@ -92,10 +92,12 @@ const sendForm = () => {
                             modalMessage.style.display = 'none';
                         },7000)
                         form.querySelectorAll('input').forEach(elem => {
-                            if (elem.getAttribute('type') !== 'radio') {
+                            if (elem.getAttribute('name') !== 'card-type' && elem.getAttribute('name') !== 'club-name') {
                                 elem.value = '';
+                                elem.checked = '';
+                                
                             }
-                            elem.checked = '';
+                            
                         });
                         body = {};
                     });
