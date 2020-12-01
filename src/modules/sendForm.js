@@ -23,7 +23,7 @@ const sendForm = () => {
                                 margin-left:-125px;
                                 margin-top:-75px;                              
                                 `;
-        loader.src = '/images/spinner.gif'; 
+        loader.src = './images/spinner.gif'; 
         preLoader.appendChild(loader); 
         bodyContent.appendChild(preLoader);
         statusMessage.style.cssText = `font-size: 1.1rem; margin: 10px; color: #FF0000`;            
