@@ -48,11 +48,23 @@ const sendForm = () => {
                 form.appendChild(statusMessage)
                 const arrCkeck = form.querySelector('input[type="checkbox"]'),
                     mozaikaCheck = form.querySelector('#footer_leto_mozaika'),
+                    inputFormPhone = form.querySelector('input[name="phone"]'),
+                    inputName = form.querySelector('input[name="name"]'),
                     schelkovoCheck = form.querySelector('#footer_leto_schelkovo') ;             
                 if (arrCkeck && !arrCkeck.checked || mozaikaCheck && !mozaikaCheck.checked && schelkovoCheck && !schelkovoCheck.checked) {
                     statusMessage.textContent = 'Вы должны дать согласие на обработку данных';
-                    
+                    console.log(inputName.value);
                     return;
+
+                }else if(inputFormPhone.value.length < 18){
+                    statusMessage.textContent = '';
+                    statusMessage.textContent = 'Введите корректный номер телефона';
+
+                }else if(inputName.value.length < 3){
+                    statusMessage.textContent = '';
+                    statusMessage.textContent = 'Введите корректное имя';
+                    return
+                
                 } else {
                     preLoader.style.display = 'block';
                     callbackBtn.style.display = 'none';
