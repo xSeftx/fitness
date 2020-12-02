@@ -121,11 +121,8 @@ const sendForm = () => {
                 .finally(() => {
                     setTimeout(() => {
                         modalMessage.style.display = 'none';
-                    },7000)
-                    if (check === null) {
-                        return;
-                      }
-                    m1.checked = check;
+                    },7000)                    
+                    
                     form.querySelectorAll('input').forEach(elem => {
                         if (elem.getAttribute('name') !== 'card-type' && elem.getAttribute('name') !== 'club-name') {
                             elem.value = '';
