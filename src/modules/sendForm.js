@@ -7,9 +7,11 @@ const sendForm = () => {
             bodyContent = document.querySelector('body'),
             formContent = modalMessage.querySelector('.form-content'),
             freeVisitForm = document.getElementById('free_visit_form'),
+            cardOrder = document.getElementById('card_order'),
             statusMessage = document.createElement('div'),
-            preLoader = document.createElement('div'),
+            preLoader = document.createElement('div'),            
             loader = document.createElement('img'),
+            formCalc = document.querySelector('#cards .right'),
             callbackBtn = document.getElementById('callback_form');
         preLoader.style.cssText = `position: fixed;
                                 display: none;
@@ -29,6 +31,7 @@ const sendForm = () => {
         statusMessage.style.cssText = `font-size: 1.1rem; margin: 10px; color: #FF0000`;            
                   
         let body = {};
+        
 
         const postData = body => {
             return fetch('./server.php', {
@@ -43,77 +46,91 @@ const sendForm = () => {
         const forms = document.querySelectorAll('form');
         forms.forEach(form => {            
             form.addEventListener('submit', event => {
+                let target = event.target;
                 
                 event.preventDefault();
                 form.appendChild(statusMessage)
                 const arrCkeck = form.querySelector('input[type="checkbox"]'),
                     mozaikaCheck = form.querySelector('#footer_leto_mozaika'),
                     inputFormPhone = form.querySelector('input[name="phone"]'),
-                    inputName = form.querySelector('input[name="name"]'),
-                    schelkovoCheck = form.querySelector('#footer_leto_schelkovo') ;             
+                    inputName = target.querySelector('.user-name'), 
+                    priceTotal = form.querySelector('#price-total'),
+                    m1 = document.querySelector('#m1'),
+                    cardMozaika = document.querySelector('#card_leto_mozaika'),             
+                    schelkovoCheck = form.querySelector('#footer_leto_schelkovo') ;    
+                             
                 if (arrCkeck && !arrCkeck.checked || mozaikaCheck && !mozaikaCheck.checked && schelkovoCheck && !schelkovoCheck.checked) {
                     statusMessage.textContent = 'Вы должны дать согласие на обработку данных';
-                    console.log(inputName.value);
+                    
                     return;
 
                 }else if(inputFormPhone.value.length < 18){
                     statusMessage.textContent = '';
-                    statusMessage.textContent = 'Введите корректный номер телефона';
-
-                }else if(inputName.value.length < 3){
-                    statusMessage.textContent = '';
-                    statusMessage.textContent = 'Введите корректное имя';
-                    return
+                    statusMessage.textContent = 'Введите корректный номер телефона';                 
                 
-                } else {
-                    preLoader.style.display = 'block';
-                    callbackBtn.style.display = 'none';
-                    freeVisitForm.style.display = 'none';
-                    statusMessage.textContent = '';                    
-                    const formData = new FormData(form);
-                    formData.forEach((item, index) => {
-                        body[index] = item;
-                    });
-                    
 
-                    postData(body)
-                    .then(response => {
-                        if (response.status !== 200) {                           
-                            statusMessage.textContent = '';                             
-                            throw new Error('Что-то пошло не так...');
-                        }else{
-                            modalMessage.style.display = 'block';
-                            statusMessage.textContent = ''; 
-                            preLoader.style.display = 'none';
-                        }
-                          
-                        
-                    })
-                    .catch(error => {
-                        formContent.innerHTML = `
-                            <h4>Ошибка отправки!</h4>
-                            <p>
-                            Пожалуйста, попробуйте позже...</p>
-                            <br>
-                        `;
-                        preLoader.style.display = 'none';
+                }else if(!target.matches('#footer_form')){ 
+                              
+                    if(inputName.value.length < 3){
+                        statusMessage.textContent = '';
+                        statusMessage.textContent = 'Введите корректное имя';
+                        return
+                    
+                    }
+                    
+                
+                } 
+                
+                preLoader.style.display = 'block';
+                callbackBtn.style.display = 'none';
+                freeVisitForm.style.display = 'none';
+                statusMessage.textContent = '';                    
+                const formData = new FormData(form);
+                formData.forEach((item, index) => {
+                    body[index] = item;
+                });
+                
+
+                postData(body)
+                .then(response => {
+                    if (response.status !== 200) {                           
+                        statusMessage.textContent = '';                             
+                        throw new Error('Что-то пошло не так...');
+                    }else{
                         modalMessage.style.display = 'block';
-                    })
-                    .finally(() => {
-                        setTimeout(() => {
-                            modalMessage.style.display = 'none';
-                        },7000)
-                        form.querySelectorAll('input').forEach(elem => {
-                            if (elem.getAttribute('name') !== 'card-type' && elem.getAttribute('name') !== 'club-name') {
-                                elem.value = '';
-                                elem.checked = '';
-                                
-                            }
-                            
-                        });
-                        body = {};
-                    });
-                }
+                        statusMessage.textContent = ''; 
+                        preLoader.style.display = 'none';
+                        m1.checked = check;
+                        cardOrder.reset();                        
+                        priceTotal.textContent = '1999'
+                    }   
+                                      
+                    form.reset();
+                })
+                
+                    
+                
+                .catch(error => {
+                    formContent.innerHTML = `
+                        <h4>Ошибка отправки!</h4>
+                        <p>
+                        Пожалуйста, попробуйте позже...</p>
+                        <br>
+                    `;
+                    preLoader.style.display = 'none';
+                    modalMessage.style.display = 'block';
+                    statusMessage.textContent = ''; 
+                })
+                .finally(() => {
+                    setTimeout(() => {
+                        modalMessage.style.display = 'none';
+                    },7000)
+                    m1.checked = check;
+
+                    
+                    body = {};
+                });
+                
             });
         });
         

@@ -37,6 +37,7 @@ const inputForm = () => {
 
     maskPhone('input[name="phone"]');
     
+    
 
     const inputFormMassege = () => {
         document.querySelectorAll('input[name="name"]').forEach(item => {
