@@ -55,6 +55,7 @@ const sendForm = () => {
                     inputName = target.querySelector('.user-name'), 
                     priceTotal = form.querySelector('#price-total'),
                     m1 = document.querySelector('#m1'),
+                    t1 = document.querySelector('#t1'),
                     cardMozaika = document.querySelector('#card_leto_mozaika'),             
                     schelkovoCheck = form.querySelector('#footer_leto_schelkovo') ;    
                              
@@ -98,6 +99,7 @@ const sendForm = () => {
                         statusMessage.textContent = ''; 
                         preLoader.style.display = 'none';
                         m1.checked = check;
+                        t1.checked = check;
                         cardOrder.reset();                        
                         priceTotal.textContent = '1999'
                     }   
