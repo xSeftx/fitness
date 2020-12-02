@@ -68,7 +68,7 @@ const sendForm = () => {
                     statusMessage.textContent = '';
                     statusMessage.textContent = 'Введите корректный номер телефона';
                     
-                }else if(!inputName === null){
+                }else if(inputName !== null){
                     if(inputName.value.length < 3){
                         statusMessage.textContent = '';
                         statusMessage.textContent = 'Введите корректное имя';
