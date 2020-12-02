@@ -10,11 +10,16 @@ const animation = () => {
             clubsLeft = document.querySelector('.image'),            
             mainSlider = document.querySelector('.main-slider'),
             slideMain = mainSlider.querySelectorAll('.slide');
-          
+            // gift.style.display = 'none';
+            // clubsRight.style.zIndex = '-1';
+            // clubsLeft.style.zIndex = '-1';    
+            
+    // logo.style.zIndex = '-1';
 
     if (gift === null) {
         return;
-      }
+    }
+
     gift.style.display = 'none';
     clubsRight.style.zIndex = '-1';
     clubsLeft.style.zIndex = '-1';  
