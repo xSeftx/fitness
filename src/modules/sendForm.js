@@ -66,19 +66,16 @@ const sendForm = () => {
 
                 }else if(inputFormPhone.value.length < 18){
                     statusMessage.textContent = '';
-                    statusMessage.textContent = 'Введите корректный номер телефона';                 
-                
-
-                }else if(!target.matches('#footer_form')){ 
-                              
+                    statusMessage.textContent = 'Введите корректный номер телефона';
+                    
+                }else if(!inputName === null){
                     if(inputName.value.length < 3){
                         statusMessage.textContent = '';
                         statusMessage.textContent = 'Введите корректное имя';
                         return                    
-                    }                   
+                    }            
                 
-                } 
-                
+                } else {
                 preLoader.style.display = 'block';
                 callbackBtn.style.display = 'none';
                 freeVisitForm.style.display = 'none';
@@ -133,11 +130,11 @@ const sendForm = () => {
                         }
                         
                     });
-
+                    
                     
                     body = {};
                 });
-                
+              } 
             });
         });
         
