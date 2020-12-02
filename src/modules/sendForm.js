@@ -46,8 +46,7 @@ const sendForm = () => {
         const forms = document.querySelectorAll('form');
         forms.forEach(form => {            
             form.addEventListener('submit', event => {
-                let target = event.target;
-                
+                let target = event.target;                
                 event.preventDefault();
                 form.appendChild(statusMessage)
                 const arrCkeck = form.querySelector('input[type="checkbox"]'),
@@ -74,10 +73,8 @@ const sendForm = () => {
                     if(inputName.value.length < 3){
                         statusMessage.textContent = '';
                         statusMessage.textContent = 'Введите корректное имя';
-                        return
-                    
-                    }
-                    
+                        return                    
+                    }                   
                 
                 } 
                 
@@ -119,13 +116,21 @@ const sendForm = () => {
                     `;
                     preLoader.style.display = 'none';
                     modalMessage.style.display = 'block';
-                    statusMessage.textContent = ''; 
+                    
                 })
                 .finally(() => {
                     setTimeout(() => {
                         modalMessage.style.display = 'none';
                     },7000)
                     m1.checked = check;
+                    form.querySelectorAll('input').forEach(elem => {
+                        if (elem.getAttribute('name') !== 'card-type' && elem.getAttribute('name') !== 'club-name') {
+                            elem.value = '';
+                            elem.checked = '';
+                            
+                        }
+                        
+                    });
 
                     
                     body = {};
