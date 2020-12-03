@@ -1,7 +1,8 @@
-
+import inputNameForm from './inputForm';
 //send-ajax-form
 
-const sendForm = () => {    
+const sendForm = () => {  
+      
     try {        
         const modalMessage = document.getElementById('thanks'),
             bodyContent = document.querySelector('body'),
@@ -53,13 +54,21 @@ const sendForm = () => {
                     inputFormPhone = form.querySelector('input[name="phone"]'),
                     inputName = form.querySelector('.user-name'),                    
                     priceTotal = form.querySelector('#price-total'),                    
-                    cardMozaika = document.querySelector('#card_leto_mozaika'),
-                    schelkovoCheck = form.querySelector('#footer_leto_schelkovo') ;  
-                                                
+                    cardMozaika = document.querySelector('#card_leto_mozaika'),                
+                    schelkovoCheck = form.querySelector('#footer_leto_schelkovo') ;
+                
+                if(inputName !==null){
+                    
+                    if(inputName.value.length < 2){                        
+                        statusMessage.textContent = 'Введите корректное имя';
+                        return
+                    }
+                }                         
                 if (arrCkeck && !arrCkeck.checked || mozaikaCheck && !mozaikaCheck.checked && schelkovoCheck && !schelkovoCheck.checked) {
                     statusMessage.textContent = 'Вы должны дать согласие на обработку данных';                    
                     
                     return;
+                
 
                 }else if(inputFormPhone.value.length < 18){
                     statusMessage.textContent = '';
@@ -89,12 +98,14 @@ const sendForm = () => {
                             
                         }
                         
-                        
+                       
                     })
+                    
                     .catch(error => {
                         formContent.innerHTML = `
-                            <h4>Ошибка отправки!</h4>
-                            <p>
+                            <h4>Ошибка отправки!
+                            </h4>
+                            <p>${error} <br>
                             Пожалуйста, попробуйте позже...</p>
                             <br>
                         `;
@@ -103,13 +114,16 @@ const sendForm = () => {
                     })
                     
                     .finally(() => {
+                        
+                        
                         setTimeout(() => {
                             modalMessage.style.display = 'none';
                         },7000)
                         form.querySelectorAll('input').forEach(elem => {
                             if (elem.getAttribute('name') !== 'card-type' && elem.getAttribute('name') !== 'club-name') {
                                 elem.value = '';
-                                elem.checked = '';         
+                                elem.checked = ''; 
+                                cardOrder[0].checked = check;
                                 
                                                                                
                                 

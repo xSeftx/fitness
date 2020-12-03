@@ -6,7 +6,7 @@ const calc = () => {
     priceTotal = formCalc.querySelector('#price-total'),
     promoInput = formCalc.querySelector('.price-message input'),
     promoCode = 'ТЕЛО2019';
-    
+
     if(priceTotal === null){
         return
     }
