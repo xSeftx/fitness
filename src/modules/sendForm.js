@@ -52,8 +52,7 @@ const sendForm = () => {
                 const arrCkeck = form.querySelector('input[type="checkbox"]'),
                     mozaikaCheck = form.querySelector('#footer_leto_mozaika'),
                     inputFormPhone = form.querySelector('input[name="phone"]'),
-                    inputName = form.querySelector('.user-name'),                    
-                    priceTotal = form.querySelector('#price-total'),                    
+                    inputName = form.querySelector('.user-name'),                                     
                     cardMozaika = document.querySelector('#card_leto_mozaika'),                
                     schelkovoCheck = form.querySelector('#footer_leto_schelkovo') ;
                 
@@ -82,6 +81,7 @@ const sendForm = () => {
                     const formData = new FormData(form);
                     formData.forEach((item, index) => {
                         body[index] = item;
+                        
                     });
                     
 
@@ -94,7 +94,9 @@ const sendForm = () => {
                             modalMessage.style.display = 'block';
                             statusMessage.textContent = ''; 
                             preLoader.style.display = 'none';
-                            priceTotal.textContent = '1999';
+                            
+                            
+                            
                             
                         }
                         
@@ -111,10 +113,13 @@ const sendForm = () => {
                         `;
                         preLoader.style.display = 'none';
                         modalMessage.style.display = 'block';
+                        
                     })
                     
                     .finally(() => {
                         
+                        const priceTotal = document.querySelector('#price-total');
+                        priceTotal.textContent = '1999';
                         
                         setTimeout(() => {
                             modalMessage.style.display = 'none';
