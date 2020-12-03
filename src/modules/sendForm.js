@@ -117,9 +117,10 @@ const sendForm = () => {
                     })
                     
                     .finally(() => {
+                        const priceTotal = document.getElementById('price-total');
                         
-                        const priceTotal = document.querySelector('#price-total');
-                        priceTotal.textContent = '1999';
+                        
+                        
                         
                         setTimeout(() => {
                             modalMessage.style.display = 'none';
@@ -130,7 +131,10 @@ const sendForm = () => {
                                 elem.checked = ''; 
                                 cardOrder[0].checked = check;
                                 
-                                                                               
+                                if(priceTotal !== null){
+                                    
+                                    priceTotal.textContent = '1999';
+                                }                                             
                                 
                                 
                             }
