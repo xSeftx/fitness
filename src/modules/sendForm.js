@@ -121,7 +121,7 @@ const sendForm = () => {
                         
                         
                         
-                        
+                        cardOrder.reset();
                         setTimeout(() => {
                             modalMessage.style.display = 'none';
                         },7000)
@@ -129,6 +129,7 @@ const sendForm = () => {
                             if (elem.getAttribute('name') !== 'card-type' && elem.getAttribute('name') !== 'club-name') {
                                 elem.value = '';
                                 elem.checked = ''; 
+                                
                                 cardOrder[0].checked = check;
                                 
                                 if(priceTotal !== null){
